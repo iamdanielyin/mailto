@@ -17,7 +17,7 @@ A simple send mail tool.
 }
 ```
 
->注意：`mailto.json`文件名不能修改，且运行时必须与执行文件同目录；`contentType`的格式为`text/plain`、`text/html`等
+>注意：`mailto.json`文件名不能修改，且运行时必须与执行文件同目录；`contentType`的格式为`text/plain`、`text/html`等。
 
 配置示例（163免费版企业邮箱）：
 
@@ -34,7 +34,7 @@ A simple send mail tool.
 
 ## Args
 
-> 抄送人参数为可选，暂不支持多收件人和抄送人，`build`目录下为编译好的可执行文件，直接使用即可，也可自行编译
+> 抄送人参数为可选，多收件人或抄送人通过英文逗号`,`分隔；`build`目录下为编译好的可执行文件，直接使用即可，也可自行编译。
 
 ```shell
 mailto "邮件标题" "邮件内容" "收件人" ["抄送人"]
@@ -46,5 +46,7 @@ mailto "邮件标题" "邮件内容" "收件人" ["抄送人"]
 ./mailto Hello 我是内容 test@xxx.com
 ./mailto Hello 我是内容 "Sam Zhang <test@xxx.com>"
 ./mailto Hello 我是内容 "Sam Zhang <test@xxx.com>" "Jack Li <test@xxx.com>"
+./mailto Hello 我是内容 "test1@xxx.com,test2@xxx.com" "Jack Li <test@xxx.com>"
+./mailto Hello 我是内容 "test1@xxx.com,test2@xxx.com" "Jack Li <test3@xxx.com>,Wu Wang <test4@xxx.com>"
 ./mailto Hello "`cat test.log`" "Sam Zhang <test@xxx.com>" "Jack Li <test@xxx.com>"
 ```

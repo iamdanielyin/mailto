@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"os"
 	"strconv"
+	"strings"
 
 	"gopkg.in/gomail.v2"
 )
@@ -52,9 +53,11 @@ func sendMail(subject string, content string, to string, cc string) error {
 	if len(to) == 0 {
 		return errors.New("收件人不能为空")
 	}
-	m.SetHeader("To", to)
+	toArray := strings.Split(to, ",")
+	m.SetHeader("To", toArray...)
 	if len(cc) > 0 {
-		m.SetHeader("Cc", cc)
+		ccArray := strings.Split(cc, ",")
+		m.SetHeader("Cc", ccArray...)
 	}
 
 	m.SetHeader("Subject", subject)

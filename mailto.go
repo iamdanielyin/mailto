@@ -31,11 +31,16 @@ func loadConfig(filename string) error {
 		return err
 	}
 	port, err := strconv.Atoi(config["port"])
+	if len(config["contentType"]) == 0 {
+		config["contentType"] = "text/plain"
+	}
+
 	if err != nil {
 		return err
 	}
 	dialer = gomail.NewDialer(config["host"], port, config["username"], config["password"])
 	dialer.TLSConfig = &tls.Config{InsecureSkipVerify: true}
+
 	return nil
 }
 
@@ -53,7 +58,7 @@ func sendMail(subject string, content string, to string, cc string) error {
 	}
 
 	m.SetHeader("Subject", subject)
-	m.SetBody("text/html", content)
+	m.SetBody(config["contentType"], content)
 	return dialer.DialAndSend(m)
 }
 

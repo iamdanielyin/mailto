@@ -8,11 +8,12 @@ A simple send mail tool.
 
 ```json
 {
-    "from":"发件人",
     "host": "smtp地址",
     "port": "端口号",
     "username": "SMTP登录账号",
-    "password": "SMTP登录密码"
+    "password": "SMTP登录密码",
+    "from":"发件人",
+    "contentType": "内容类型" // text/plain、text/html
 }
 ```
 
@@ -20,11 +21,12 @@ A simple send mail tool.
 
 ```json
 {
-    "from":"System <system@test.com>",
     "host": "smtp.ym.163.com",
     "port": "25",
     "username": "system@test.com",
-    "password": "123456"
+    "password": "123456",
+    "from":"System <system@test.com>",
+    "contentType": "text/plain"
 }
 ```
 

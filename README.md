@@ -13,9 +13,11 @@ A simple send mail tool.
     "username": "SMTP登录账号",
     "password": "SMTP登录密码",
     "from":"发件人",
-    "contentType": "内容类型" // text/plain、text/html
+    "contentType": "内容类型"
 }
 ```
+
+>注意：`mailto.json`文件名不能修改，且运行时必须与执行文件同目录；`contentType`的格式为`text/plain`、`text/html`等
 
 配置示例（163免费版企业邮箱）：
 
@@ -29,8 +31,6 @@ A simple send mail tool.
     "contentType": "text/plain"
 }
 ```
-
->注意：`mailto.json`文件名不能修改，且运行时必须与执行文件同目录
 
 ## Args
 

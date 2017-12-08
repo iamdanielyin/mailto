@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/tls"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -34,6 +35,7 @@ func loadConfig(filename string) error {
 		return err
 	}
 	dialer = gomail.NewDialer(config["host"], port, config["username"], config["password"])
+	dialer.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 	return nil
 }
 

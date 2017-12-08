@@ -64,12 +64,14 @@ func main() {
 	args := os.Args[1:]
 	err := loadConfig("./mailto.json")
 	if err != nil {
-		fmt.Println(err)
-		return
+		panic(err)
 	}
 	if len(args) == 4 {
-		sendMail(args[0], args[1], args[2], args[3])
+		err = sendMail(args[0], args[1], args[2], args[3])
 	} else {
-		sendMail(args[0], args[1], args[2], "")
+		err = sendMail(args[0], args[1], args[2], "")
+	}
+	if err != nil {
+		panic(err)
 	}
 }
